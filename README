@@ -1,0 +1,31 @@
+## ShowInColumns
+
+It's a helper to show your content in columns when you use a table.
+
+
+Attributes
+	collection => a array of object ex. User.all
+	collumns   => number of columns that will create default is 2
+	block      => a block of code that will repeat You need add a tag <td>
+
+
+## Example
+
+You can use like this:
+		<table id="list_users">
+			<% show_in_columns User.all, 2 do |user| -%>
+				<td><%=user.name%></td>
+			<% end -%>
+		</table>
+
+this code will generate a HTML like this:
+		<tr>
+		  <td>Name 1</td>
+		  <td>Name 2</td>
+		</tr>
+		<tr>
+		  <td>Name 3</td>
+		</tr>
+
+
+Copyright (c) 2008 Marcio Trindade (marciotrindade@gmail.com), released under the MIT license
