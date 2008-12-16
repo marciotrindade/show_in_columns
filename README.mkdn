@@ -3,11 +3,17 @@
 It's a helper to show your content in columns when you use a table.
 
 
-Attributes
+## Attributes
 
 	collection => a array of object ex. User.all
 	collumns   => number of columns that will create default is 2
 	block      => a block of code that will repeat You need add a tag <td>
+
+## Install
+
+to instal run:
+
+	script/plugin install git://github.com/marciotrindade/show_in_columns.git
 
 
 ## Example

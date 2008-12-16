@@ -16,14 +16,12 @@ module ShowInColumns
   # </tr>
   def show_in_columns(collection, columns = 2, &proc)
     concat("<tr>", proc.binding)
-    for i in (0..(collection.size + 1))
+    i = 0
+    collection.each do |obj|
       concat("</tr><tr>", proc.binding) if (i%columns) == 0 && i != 0
       proc.call(collection[i])
+      i+=1
     end
     concat("</tr>", proc.binding)
-  end
-  
-  def test_marcio
-    "marcio trindade"
   end
 end
