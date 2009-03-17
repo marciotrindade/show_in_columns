@@ -15,13 +15,25 @@ module ShowInColumns
   #   <td>Name 3</td>
   # </tr>
   def show_in_columns(collection, columns = 2, &proc)
-    concat("<tr>", proc.binding)
+    concat("<tr>")
+    
     i = 0
-    collection.each do |obj|
-      concat("</tr><tr>", proc.binding) if (i%columns) == 0 && i != 0
-      proc.call(collection[i])
-      i+=1
+    
+    case collection
+    when Hash
+      collection.each do |k, v|
+        concat("</tr><tr>") if (i%columns) == 0 && i != 0
+        proc.call(k, v)
+        i+=1
+      end
+    else
+      collection.each do |v|
+        concat("</tr><tr>") if (i%columns) == 0 && i != 0
+        proc.call(v)
+        i+=1
+      end
     end
-    concat("</tr>", proc.binding)
+    
+    concat("</tr>")
   end
 end

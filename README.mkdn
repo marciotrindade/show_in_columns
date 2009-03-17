@@ -5,7 +5,7 @@ It's a helper to show your content in columns when you use a table.
 
 ## Attributes
 
-	collection => a array of object ex. User.all
+	collection => an Array or Hash of objects ex. User.all
 	collumns   => number of columns that will create default is 2
 	block      => a block of code that will repeat You need add a tag <td>
 
